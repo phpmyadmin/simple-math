@@ -67,7 +67,8 @@ class Subtraction extends Operator {
 
     public function operate(Stack $stack) {
         $left = $stack->pop()->operate($stack);
-        $right = $stack->pop()->operate($stack);
+        $right = $stack->pop();
+        $right = ($right ? $right->operate($stack) : 0);
         return $right - $left;
     }
 
