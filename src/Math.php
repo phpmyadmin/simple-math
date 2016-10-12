@@ -47,18 +47,7 @@ class Math {
                 $stack->push(TerminalExpression::factory($value));
             }
         }
-        return $operator ? $operator->render() : $this->render($stack);
-    }
-
-    protected function render(Stack $stack) {
-        $output = '';
-        while (($el = $stack->pop())) {
-            $output .= $el->render();
-        }
-        if ($output) {
-            return $output;
-        }
-        throw new \RuntimeException('Could not render output');
+        return $operator->render();
     }
 
     protected function parseParenthesis(TerminalExpression $expression, Stack $output, Stack $operators) {
