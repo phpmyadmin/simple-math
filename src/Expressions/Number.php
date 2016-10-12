@@ -18,12 +18,12 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
-class ComparisonNE extends Comparison {
+class Number extends \SimpleMath\Expression {
 
-    protected function cmp($left, $right)
-    {
-        return $left != $right;
+    public function operate(\SimpleMath\Stack $stack, $variables=array()) {
+        return $this->value;
     }
+
 }

@@ -18,14 +18,14 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
 class Ternary extends Operator {
 
     protected $precidence = 1;
     protected $leftAssoc = false;
 
-    public function operate(Stack $stack, $variables=array()) {
+    public function operate(\SimpleMath\Stack $stack, $variables=array()) {
         if (! $this->isOpen()) {
             $right = $stack->pop()->operate($stack, $variables);
             $left = $stack->pop()->operate($stack, $variables);

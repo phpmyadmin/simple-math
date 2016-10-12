@@ -18,13 +18,13 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
 abstract class Comparison extends Operator {
 
     protected $precidence = 3;
 
-    public function operate(Stack $stack, $variables=array())
+    public function operate(\SimpleMath\Stack $stack, $variables=array())
     {
         $right = $stack->pop()->operate($stack, $variables);
         $left = $stack->pop()->operate($stack, $variables);

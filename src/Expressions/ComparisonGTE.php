@@ -18,17 +18,12 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
-class TernaryIntermediate extends Expression {
+class ComparisonGTE extends Comparison {
 
-    public function operate(Stack $stack, $variables=array()) {
-        throw new \RuntimeException('Mismatched ternary operator!');
-    }
-
-    public function getValues()
+    protected function cmp($left, $right)
     {
-        return $this->value;
+        return $left >= $right;
     }
-
 }

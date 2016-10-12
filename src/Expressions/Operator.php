@@ -18,14 +18,12 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
-class Multiplication extends Operator {
+abstract class Operator extends \SimpleMath\Expression {
 
-    protected $precidence = 5;
-
-    public function operate(Stack $stack, $variables=array()) {
-        return $stack->pop()->operate($stack, $variables) * $stack->pop()->operate($stack, $variables);
+    public function isOperator() {
+        return true;
     }
 
 }

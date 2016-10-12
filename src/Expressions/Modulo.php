@@ -18,12 +18,16 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
-class Number extends Expression {
+class Modulo extends Operator {
 
-    public function operate(Stack $stack, $variables=array()) {
-        return $this->value;
+    protected $precidence = 5;
+
+    public function operate(\SimpleMath\Stack $stack, $variables=array()) {
+        $left = $stack->pop()->operate($stack, $variables);
+        $right = $stack->pop()->operate($stack, $variables);
+        return $right % $left;
     }
 
 }

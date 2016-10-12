@@ -18,18 +18,15 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
-class Subtraction extends Operator {
+class OperatorAnd extends Comparison {
 
-    protected $precidence = 4;
+    protected $precidence = 2;
 
-    public function operate(Stack $stack, $variables=array()) {
-        $left = $stack->pop()->operate($stack, $variables);
-        $right = $stack->pop();
-        $right = ($right ? $right->operate($stack, $variables) : 0);
-        return $right - $left;
+    protected function cmp($left, $right)
+    {
+        return $left && $right;
     }
-
 }
 

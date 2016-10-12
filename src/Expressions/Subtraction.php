@@ -18,14 +18,18 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-namespace SimpleMath;
+namespace SimpleMath\Expressions;
 
-class Addition extends Operator {
+class Subtraction extends Operator {
 
     protected $precidence = 4;
 
-    public function operate(Stack $stack, $variables=array()) {
-        return $stack->pop()->operate($stack, $variables) + $stack->pop()->operate($stack, $variables);
+    public function operate(\SimpleMath\Stack $stack, $variables=array()) {
+        $left = $stack->pop()->operate($stack, $variables);
+        $right = $stack->pop();
+        $right = ($right ? $right->operate($stack, $variables) : 0);
+        return $right - $left;
     }
 
 }
+

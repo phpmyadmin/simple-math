@@ -46,44 +46,44 @@ abstract class Expression {
         if (is_object($value) && $value instanceof Expression) {
             return $value;
         } elseif (is_numeric($value)) {
-            return new Number($value);
+            return new Expressions\Number($value);
         } elseif (preg_match('/^\$?[a-z]+$/', $value)) {
-            return new Variable($value);
+            return new Expressions\Variable($value);
         }
 
         switch ($value) {
             case '+':
-                return new Addition($value);
+                return new Expressions\Addition($value);
             case '-':
-                return new Subtraction($value);
+                return new Expressions\Subtraction($value);
             case '*':
-                return new Multiplication($value);
+                return new Expressions\Multiplication($value);
             case '/':
-                return new Division($value);
+                return new Expressions\Division($value);
             case '%':
-                return new Modulo($value);
+                return new Expressions\Modulo($value);
             case '?':
             case ':':
-                return new Ternary($value);
+                return new Expressions\Ternary($value);
             case '(':
             case ')':
-                return new Parenthesis($value);
+                return new Expressions\Parenthesis($value);
             case '==':
-                return new ComparisonEQ($value);
+                return new Expressions\ComparisonEQ($value);
             case '<':
-                return new ComparisonLT($value);
+                return new Expressions\ComparisonLT($value);
             case '>':
-                return new ComparisonGT($value);
+                return new Expressions\ComparisonGT($value);
             case '<=':
-                return new ComparisonLTE($value);
+                return new Expressions\ComparisonLTE($value);
             case '>=':
-                return new ComparisonGTE($value);
+                return new Expressions\ComparisonGTE($value);
             case '!=':
-                return new ComparisonNE($value);
+                return new Expressions\ComparisonNE($value);
             case '||':
-                return new OperatorOr($value);
+                return new Expressions\OperatorOr($value);
             case '&&':
-                return new OperatorAnd($value);
+                return new Expressions\OperatorAnd($value);
         }
 
         throw new \Exception('Undefined Value ' . $value);
