@@ -42,11 +42,11 @@ $math = new SimpleMath\Math();
 // Evaluate expression
 $math->evaluate('1 + 2');
 
-// Evaluate expressoin with PHP style variable
+// Evaluate expression with PHP style variable
 $math->registerVariable('$a', 4);
 $math->evaluate('$a + 1');
 
-// Evaluate expressoin with variable
+// Evaluate expression with variable
 $math->registerVariable('n', 4);
 $math->evaluate('n + 1');
 
