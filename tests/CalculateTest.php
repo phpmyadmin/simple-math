@@ -46,10 +46,10 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider getVariableEquations
      */
-    public function testEvaluateVariable($equation, $variable, $result)
+    public function testEvaluateVariable($equation, $name, $variable, $result)
     {
         $math = new SimpleMath\Math();
-        $math->registerVariable('$a', $variable);
+        $math->registerVariable($name, $variable);
         $this->assertEquals(
             $result,
             $math->evaluate($equation)
@@ -59,9 +59,10 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
     public function getVariableEquations()
     {
         return array(
-            array('($a + 3) * 4', 4, 28),
-            array('($a + 3) * 4', 1, 16),
-            array('($a + $a) * 4', 5, 40),
+            array('($a + 3) * 4', '$a', 4, 28),
+            array('($a + 3) * 4', '$a', 1, 16),
+            array('($a + $a) * 4', '$a', 5, 40),
+            array('n + 1', 'n', 100, 101),
         );
     }
 }

@@ -14,7 +14,7 @@ abstract class TerminalExpression {
             return $value;
         } elseif (is_numeric($value)) {
             return new Number($value);
-        } elseif (preg_match('/^\$[a-z]+$/', $value)) {
+        } elseif (preg_match('/^\$?[a-z]+$/', $value)) {
             return new Variable($value);
         } elseif ($value == '+') {
             return new Addition($value);
