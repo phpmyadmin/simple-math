@@ -111,4 +111,28 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
         $math->registerVariable('n', 0);
         $this->assertEquals(1, $math->run());
     }
+
+    /**
+     * @dataProvider gettextData
+     */
+    public function testGettext($equation, $expected)
+    {
+        $math = new SimpleMath\Math();
+        $math->parse($equation);
+        $values = array(0, 1, 2, 3, 4, 5, 10, 11);
+        foreach ($values as $key => $value) {
+            $math->registerVariable('n', $value);
+            $this->assertEquals($expected[$key], $math->run(), 'n=' . $value);
+        }
+    }
+
+    public function gettextData()
+    {
+        return array(
+            array(
+                '(n != 1)',
+                array(1, 0, 1, 1, 1, 1, 1, 1),
+            ),
+        );
+    }
 }
