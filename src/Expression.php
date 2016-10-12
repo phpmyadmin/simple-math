@@ -43,9 +43,7 @@ abstract class Expression {
     }
 
     public static function factory($value) {
-        if (is_object($value) && $value instanceof Expression) {
-            return $value;
-        } elseif (is_numeric($value)) {
+        if (is_numeric($value)) {
             return new Expressions\Number($value);
         } elseif (preg_match('/^\$?[a-z]+$/', $value)) {
             return new Expressions\Variable($value);
