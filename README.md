@@ -42,8 +42,8 @@ $math = new SimpleMath\Math();
 // Evaluate expression
 $math->evaluate('1 + 2');
 
-// Evaluate expressoin with variable
-$math->registerVariable('a', 4);
+// Evaluate expressoin with PHP style variable
+$math->registerVariable('$a', 4);
 $math->evaluate('$a + 1');
 
 ```

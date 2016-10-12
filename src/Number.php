@@ -3,7 +3,7 @@ namespace SimpleMath;
 
 class Number extends TerminalExpression {
 
-    public function operate(Stack $stack) {
+    public function operate(Stack $stack, $variables=array()) {
         return $this->value;
     }
 

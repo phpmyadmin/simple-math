@@ -49,7 +49,7 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
     public function testEvaluateVariable($equation, $variable, $result)
     {
         $math = new SimpleMath\Math();
-        $math->registerVariable('a', $variable);
+        $math->registerVariable('$a', $variable);
         $this->assertEquals(
             $result,
             $math->evaluate($equation)

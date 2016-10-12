@@ -5,7 +5,7 @@ class Parenthesis extends TerminalExpression {
 
     protected $precidence = 6;
 
-    public function operate(Stack $stack) {
+    public function operate(Stack $stack, $variables=array()) {
     }
 
     public function getPrecidence() {

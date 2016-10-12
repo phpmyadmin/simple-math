@@ -16,7 +16,6 @@ class Math {
         $output = new Stack();
         $operators = new Stack();
         foreach ($tokens as $token) {
-            $token = $this->extractVariables($token);
             $expression = TerminalExpression::factory($token);
             if ($expression->isOperator()) {
                 $this->parseOperator($expression, $output, $operators);
@@ -41,20 +40,12 @@ class Math {
 
     public function run(Stack $stack) {
         while (($operator = $stack->pop()) && $operator->isOperator()) {
-            $value = $operator->operate($stack);
+            $value = $operator->operate($stack, $this->variables);
             if (!is_null($value)) {
                 $stack->push(TerminalExpression::factory($value));
             }
         }
         return $operator ? $operator->render() : $this->render($stack);
-    }
-
-    protected function extractVariables($token) {
-        if ($token[0] == '$') {
-            $key = substr($token, 1);
-            return isset($this->variables[$key]) ? $this->variables[$key] : 0;
-        }
-        return $token;
     }
 
     protected function render(Stack $stack) {
