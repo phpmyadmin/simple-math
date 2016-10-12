@@ -84,7 +84,7 @@ abstract class Expression {
                 return new Expressions\OperatorAnd($value);
         }
 
-        throw new \Exception('Undefined Value ' . $value);
+        throw new \RuntimeException('Undefined Value ' . $value);
     }
 
     abstract public function operate(Stack $stack, $variables=array());

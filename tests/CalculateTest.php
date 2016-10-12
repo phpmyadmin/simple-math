@@ -183,6 +183,7 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
             array('1 + (1 : 2)'),
             array('(1 + 2'),
             array('1 + 2)'),
+            array('#'),
         );
     }
 }
