@@ -40,6 +40,10 @@ abstract class TerminalExpression {
             return new ComparisonGTE($value);
         } elseif ($value == '!=') {
             return new ComparisonNE($value);
+        } elseif ($value == '||') {
+            return new OperatorOr($value);
+        } elseif ($value == '&&') {
+            return new OperatorAnd($value);
         }
         throw new \Exception('Undefined Value ' . $value);
     }

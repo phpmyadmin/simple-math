@@ -3,7 +3,7 @@ namespace SimpleMath;
 
 abstract class Comparison extends Operator {
 
-    protected $precidence = 7;
+    protected $precidence = 8;
 
     public function operate(Stack $stack, $variables=array())
     {

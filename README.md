@@ -13,6 +13,7 @@ Simple math expression evaluator.
 * Supports parenthesis
 * Supports right associative ternary operator
 * Supports comparison operators `==`, `!=`, `>`, `<`, `>=`, `<=`
+* Supports basic logical operations `&&`, `||`
 * Supports variables (either PHP style `$a` or simple `n`)
 
 ## Installation

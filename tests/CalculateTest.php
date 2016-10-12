@@ -61,6 +61,12 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
             array('20 >= 20', 1),
             array('20 >= 10', 1),
             array('1 == 1 ? 10 : 20', 10),
+            array('1 || 2', 1),
+            array('1 || 0', 1),
+            array('0 || 0', 0),
+            array('1 && 2', 1),
+            array('1 && 0', 0),
+            array('0 && 0', 0),
         );
     }
 

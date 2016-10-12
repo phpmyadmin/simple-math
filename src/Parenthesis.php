@@ -3,7 +3,7 @@ namespace SimpleMath;
 
 class Parenthesis extends TerminalExpression {
 
-    protected $precidence = 8;
+    protected $precidence = 9;
 
     public function operate(Stack $stack, $variables=array()) {
     }
