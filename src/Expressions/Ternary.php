@@ -29,19 +29,23 @@ class Ternary extends \SimpleMath\Expression {
         return true;
     }
 
+    public function operateTernary(\SimpleMath\Stack $stack, $variables=array()) {
+        $right = $stack->pop()->operate($stack, $variables);
+        $left = $stack->pop()->operate($stack, $variables);
+        return array($left, $right);
+    }
+
     public function operate(\SimpleMath\Stack $stack, $variables=array()) {
         if (! $this->isOpen()) {
-            $right = $stack->pop()->operate($stack, $variables);
-            $left = $stack->pop()->operate($stack, $variables);
-            return new TernaryIntermediate(array($left, $right));
+            throw new \RuntimeException('Mismatched ternary operator!');
         } else {
-            $right = $stack->pop()->operate($stack, $variables);
-            $left = $stack->pop()->operate($stack, $variables);
-            if ($right instanceof TernaryIntermediate) {
-                $right = $right->getValues();
+            $right = $stack->pop();
+            if ($right instanceof Ternary) {
+                $right = $right->operateTernary($stack, $variables);
             } else {
                 throw new \RuntimeException('Mismatched ternary operator!');
             }
+            $left = $stack->pop()->operate($stack, $variables);
             if ($left) {
                 return $right[0];
             } else {
