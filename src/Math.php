@@ -26,11 +26,11 @@ class Math {
                 $output->push($expression);
             }
         }
-        while (($op = $operators->pop())) {
-            if ($op->isParenthesis()) {
+        while (($operator = $operators->pop())) {
+            if ($operator->isParenthesis()) {
                 throw new \RuntimeException('Mismatched Parenthesis');
             }
-            $output->push($op);
+            $output->push($operator);
         }
         $this->stack = $output;
     }
