@@ -3,7 +3,7 @@
 /**
  * Bootstrap for tests.
  *
- * @package    MoTranslator
+ * @package    SimpleMath
  * @subpackage Tests
  */
 
