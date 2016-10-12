@@ -27,7 +27,7 @@ class Math {
         }
         while (($op = $operators->pop())) {
             if ($op->isParenthesis()) {
-                throw new RuntimeException('Mismatched Parenthesis');
+                throw new \RuntimeException('Mismatched Parenthesis');
             }
             $output->push($op);
         }
@@ -56,7 +56,7 @@ class Math {
         if ($output) {
             return $output;
         }
-        throw new RuntimeException('Could not render output');
+        throw new \RuntimeException('Could not render output');
     }
 
     protected function parseParenthesis(TerminalExpression $expression, Stack $output, Stack $operators) {
@@ -73,7 +73,7 @@ class Math {
                 }
             }
             if (!$clean) {
-                throw new RuntimeException('Mismatched Parenthesis');
+                throw new \RuntimeException('Mismatched Parenthesis');
             }
         }
     }
