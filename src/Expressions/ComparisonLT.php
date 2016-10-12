@@ -22,7 +22,7 @@ namespace SimpleMath\Expressions;
 
 class ComparisonLT extends Comparison {
 
-    protected function cmp($left, $right)
+    protected function calculate($left, $right)
     {
         return $left < $right;
     }

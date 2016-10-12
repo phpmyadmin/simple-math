@@ -28,8 +28,8 @@ abstract class Comparison extends Operator {
     {
         $right = $stack->pop()->operate($stack, $variables);
         $left = $stack->pop()->operate($stack, $variables);
-        return $this->cmp($left, $right) ? 1 : 0;
+        return $this->calculate($left, $right) ? 1 : 0;
     }
 
-    abstract protected function cmp($left, $right);
+    abstract protected function calculate($left, $right);
 }
