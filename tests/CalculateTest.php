@@ -165,4 +165,24 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
             ),
         );
     }
+
+    /**
+     * @dataProvider errorEquations
+     */
+    public function testErrors($equation)
+    {
+        $this->expectException('\RuntimeException');
+        $math = new SimpleMath\Math();
+        $math->evaluate($equation);
+    }
+
+    public function errorEquations()
+    {
+        return array(
+            array('1 ? 2'),
+            array('1 + (1 : 2)'),
+            array('(1 + 2'),
+            array('1 + 2)'),
+        );
+    }
 }
