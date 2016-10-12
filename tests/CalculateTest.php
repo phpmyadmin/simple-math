@@ -67,6 +67,9 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
             array('1 && 2', 1),
             array('1 && 0', 0),
             array('0 && 0', 0),
+            array('2 % 2', 0),
+            array('4 % 2', 0),
+            array('4 % 3', 1),
         );
     }
 

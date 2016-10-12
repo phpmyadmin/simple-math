@@ -24,6 +24,8 @@ abstract class TerminalExpression {
             return new Multiplication($value);
         } elseif ($value == '/') {
             return new Division($value);
+        } elseif ($value == '%') {
+            return new Modulo($value);
         } elseif (in_array($value, array('?', ':'))) {
             return new Ternary($value);
         } elseif (in_array($value, array('(', ')'))) {

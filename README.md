@@ -9,7 +9,7 @@ Simple math expression evaluator.
 
 ## Features
 
-* Supports basic arithmetic operations `+`, `-`, `*`, `/`
+* Supports basic arithmetic operations `+`, `-`, `*`, `/`, `%`
 * Supports parenthesis
 * Supports right associative ternary operator
 * Supports comparison operators `==`, `!=`, `>`, `<`, `>=`, `<=`
