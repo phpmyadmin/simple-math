@@ -171,7 +171,7 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
      */
     public function testErrors($equation)
     {
-        $this->expectException('\RuntimeException');
+        $this->setExpectedException('RuntimeException');
         $math = new SimpleMath\Math();
         $math->evaluate($equation);
     }
