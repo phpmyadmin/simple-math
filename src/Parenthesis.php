@@ -8,10 +8,6 @@ class Parenthesis extends TerminalExpression {
     public function operate(Stack $stack, $variables=array()) {
     }
 
-    public function getPrecidence() {
-        return $this->precidence;
-    }
-
     public function isParenthesis() {
         return true;
     }

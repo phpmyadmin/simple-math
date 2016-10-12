@@ -4,9 +4,23 @@ namespace SimpleMath;
 abstract class TerminalExpression {
 
     protected $value = '';
+    protected $precidence = 0;
+    protected $leftAssoc = true;
 
     public function __construct($value) {
         $this->value = $value;
+    }
+
+    public function getPrecidence() {
+        return $this->precidence;
+    }
+
+    public function isLeftAssoc() {
+        return $this->leftAssoc;
+    }
+
+    public function isOpen() {
+        return false;
     }
 
     public static function factory($value) {
@@ -63,10 +77,6 @@ abstract class TerminalExpression {
     }
 
     public function isParenthesis() {
-        return false;
-    }
-
-    public function isTernary() {
         return false;
     }
 
