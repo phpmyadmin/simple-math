@@ -1,4 +1,6 @@
 <?php
+namespace SimpleMath;
+
 class Stack {
 
     protected $data = array();

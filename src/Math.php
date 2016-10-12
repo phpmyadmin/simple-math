@@ -1,7 +1,6 @@
 <?php
-require_once 'Stack.php';
-require_once 'TerminalExpression.php';
-require_once 'Expressions.php';
+
+namespace SimpleMath;
 
 class Math {
 

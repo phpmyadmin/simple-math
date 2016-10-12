@@ -1,0 +1,29 @@
+{
+    "name": "phpmyadmin/simple-math",
+    "description": "Simple math evaluator",
+    "license": "GPL-2.0+",
+    "keywords": ["php", "math", "eval", "calculation"],
+    "homepage": "https://github.com/phpmyadmin/simple-math",
+    "authors": [
+        {
+            "name": "The phpMyAdmin Team",
+            "email": "developers@phpmyadmin.net",
+            "homepage": "https://www.phpmyadmin.net/team/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/phpmyadmin/simple-math/issues",
+        "source": "https://github.com/phpmyadmin/simple-math"
+    },
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.2 || ~4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "SimpleMath\\": "src"
+        }
+    }
+}

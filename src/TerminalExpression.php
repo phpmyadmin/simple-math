@@ -1,4 +1,6 @@
 <?php
+namespace SimpleMath;
+
 abstract class TerminalExpression {
 
     protected $value = '';
