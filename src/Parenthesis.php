@@ -20,7 +20,7 @@
 */
 namespace SimpleMath;
 
-class Parenthesis extends TerminalExpression {
+class Parenthesis extends Expression {
 
     protected $precidence = 6;
 

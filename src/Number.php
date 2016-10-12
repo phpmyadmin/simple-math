@@ -20,7 +20,7 @@
 */
 namespace SimpleMath;
 
-class Number extends TerminalExpression {
+class Number extends Expression {
 
     public function operate(Stack $stack, $variables=array()) {
         return $this->value;

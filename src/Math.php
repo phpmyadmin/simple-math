@@ -54,7 +54,7 @@ class Math {
         $output = new Stack();
         $operators = new Stack();
         foreach ($tokens as $token) {
-            $expression = TerminalExpression::factory($token);
+            $expression = Expression::factory($token);
             if ($expression->isOperator()) {
                 $this->parseOperator($expression, $output, $operators);
             } elseif ($expression->isParenthesis()) {
@@ -94,13 +94,13 @@ class Math {
         while (($operator = $stack->pop()) && $operator->isOperator()) {
             $value = $operator->operate($stack, $this->variables);
             if (!is_null($value)) {
-                $stack->push(TerminalExpression::factory($value));
+                $stack->push(Expression::factory($value));
             }
         }
         return $operator->render();
     }
 
-    protected function parseParenthesis(TerminalExpression $expression, Stack $output, Stack $operators) {
+    protected function parseParenthesis(Expression $expression, Stack $output, Stack $operators) {
         if ($expression->isOpen()) {
             $operators->push($expression);
         } else {
@@ -119,7 +119,7 @@ class Math {
         }
     }
 
-    protected function parseOperator(TerminalExpression $expression, Stack $output, Stack $operators) {
+    protected function parseOperator(Expression $expression, Stack $output, Stack $operators) {
         $end = $operators->poke();
         if (!$end) {
             $operators->push($expression);

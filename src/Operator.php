@@ -20,7 +20,7 @@
 */
 namespace SimpleMath;
 
-abstract class Operator extends TerminalExpression {
+abstract class Operator extends Expression {
 
     public function isOperator() {
         return true;

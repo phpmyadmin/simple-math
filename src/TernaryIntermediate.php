@@ -20,7 +20,7 @@
 */
 namespace SimpleMath;
 
-class TernaryIntermediate extends TerminalExpression {
+class TernaryIntermediate extends Expression {
 
     public function operate(Stack $stack, $variables=array()) {
         throw new \RuntimeException('Mismatched ternary operator!');

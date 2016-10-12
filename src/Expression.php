@@ -20,7 +20,7 @@
 */
 namespace SimpleMath;
 
-abstract class TerminalExpression {
+abstract class Expression {
 
     protected $value = '';
     protected $precidence = 0;
@@ -43,7 +43,7 @@ abstract class TerminalExpression {
     }
 
     public static function factory($value) {
-        if (is_object($value) && $value instanceof TerminalExpression) {
+        if (is_object($value) && $value instanceof Expression) {
             return $value;
         } elseif (is_numeric($value)) {
             return new Number($value);
