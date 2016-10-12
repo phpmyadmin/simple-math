@@ -16,37 +16,43 @@ abstract class TerminalExpression {
             return new Number($value);
         } elseif (preg_match('/^\$?[a-z]+$/', $value)) {
             return new Variable($value);
-        } elseif ($value == '+') {
-            return new Addition($value);
-        } elseif ($value == '-') {
-            return new Subtraction($value);
-        } elseif ($value == '*') {
-            return new Multiplication($value);
-        } elseif ($value == '/') {
-            return new Division($value);
-        } elseif ($value == '%') {
-            return new Modulo($value);
-        } elseif (in_array($value, array('?', ':'))) {
-            return new Ternary($value);
-        } elseif (in_array($value, array('(', ')'))) {
-            return new Parenthesis($value);
-        } elseif ($value == '==') {
-            return new ComparisonEQ($value);
-        } elseif ($value == '<') {
-            return new ComparisonLT($value);
-        } elseif ($value == '>') {
-            return new ComparisonGT($value);
-        } elseif ($value == '<=') {
-            return new ComparisonLTE($value);
-        } elseif ($value == '>=') {
-            return new ComparisonGTE($value);
-        } elseif ($value == '!=') {
-            return new ComparisonNE($value);
-        } elseif ($value == '||') {
-            return new OperatorOr($value);
-        } elseif ($value == '&&') {
-            return new OperatorAnd($value);
         }
+
+        switch ($value) {
+            case '+':
+                return new Addition($value);
+            case '-':
+                return new Subtraction($value);
+            case '*':
+                return new Multiplication($value);
+            case '/':
+                return new Division($value);
+            case '%':
+                return new Modulo($value);
+            case '?':
+            case ':':
+                return new Ternary($value);
+            case '(':
+            case ')':
+                return new Parenthesis($value);
+            case '==':
+                return new ComparisonEQ($value);
+            case '<':
+                return new ComparisonLT($value);
+            case '>':
+                return new ComparisonGT($value);
+            case '<=':
+                return new ComparisonLTE($value);
+            case '>=':
+                return new ComparisonGTE($value);
+            case '!=':
+                return new ComparisonNE($value);
+            case '||':
+                return new OperatorOr($value);
+            case '&&':
+                return new OperatorAnd($value);
+        }
+
         throw new \Exception('Undefined Value ' . $value);
     }
 
