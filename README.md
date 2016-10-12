@@ -40,27 +40,26 @@ The API documentation is available at
 $math = new SimpleMath\Math();
 
 // Evaluate expression
-$math->evaluate('1 + 2');
+$value = $math->evaluate('1 + 2');
 
 // Evaluate expression with PHP style variable
 $math->registerVariable('$a', 4);
-$math->evaluate('$a + 1');
+$value = $math->evaluate('$a + 1');
 
 // Evaluate expression with variable
 $math->registerVariable('n', 4);
-$math->evaluate('n + 1');
+$value = $math->evaluate('n + 1');
 
 // Calculate same expression with different values
-
 $math = new SimpleMath\Math();
 
 $math->parse('n + 1');
 
 $math->registerVariable('n', 10);
-$math->run();
+$value = $math->run();
 
 $math->registerVariable('n', 100);
-$math->run();
+$value = $math->run();
 ```
 
 ## History
