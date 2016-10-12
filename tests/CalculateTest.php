@@ -24,6 +24,14 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
     public function getEquations()
     {
         return array(
+            array('1 + 2', 3),
+            array('1 - 1', 0),
+            array('-1', -1),
+            array('2 * 3', 6),
+            array('6 / 2', 3),
+            array('2*2', 4),
+            array('2 * (1 + 1)', 4),
+            array('(1 + 1) * (2 + 2)', 8),
             array('(2 + 3) * 4', 20),
             array('1 + 2 * ((3 + 4) * 5 + 6)', 83),
             array('(1 + 2) * (3 + 4) * (5 + 6)', 231),
