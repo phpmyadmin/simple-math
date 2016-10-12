@@ -27,6 +27,11 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
             array('(2 + 3) * 4', 20),
             array('1 + 2 * ((3 + 4) * 5 + 6)', 83),
             array('(1 + 2) * (3 + 4) * (5 + 6)', 231),
+            array(
+                '(1+69) * (5-1) * (6 * (5+2-3+(75 * (2+6)+75 * ' .
+                ' (1+5+2+6+3-15)+5)) - (515-(35 * (51-2))))',
+                1611120
+            ),
         );
     }
 
@@ -47,6 +52,7 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array('($a + 3) * 4', 4, 28),
+            array('($a + 3) * 4', 1, 16),
             array('($a + $a) * 4', 5, 40),
         );
     }
