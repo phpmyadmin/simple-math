@@ -28,6 +28,18 @@ abstract class TerminalExpression {
             return new Ternary($value);
         } elseif (in_array($value, array('(', ')'))) {
             return new Parenthesis($value);
+        } elseif ($value == '==') {
+            return new ComparisonEQ($value);
+        } elseif ($value == '<') {
+            return new ComparisonLT($value);
+        } elseif ($value == '>') {
+            return new ComparisonGT($value);
+        } elseif ($value == '<=') {
+            return new ComparisonLTE($value);
+        } elseif ($value == '>=') {
+            return new ComparisonGTE($value);
+        } elseif ($value == '!=') {
+            return new ComparisonNE($value);
         }
         throw new \Exception('Undefined Value ' . $value);
     }

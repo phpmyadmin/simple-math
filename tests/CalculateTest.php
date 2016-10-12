@@ -48,6 +48,19 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
             array('1 ? 0 : 0 ? 1 : 2', 0),
             array('0 ? 0 : 1 ? 1 : 2', 1),
             array('0 ? 0 : 0 ? 1 : 2', 2),
+            array('10 == 20', 0),
+            array('10 == 10', 1),
+            array('10 != 20', 1),
+            array('10 != 10', 0),
+            array('10 < 20', 1),
+            array('10 < 10', 0),
+            array('10 <= 20', 1),
+            array('10 <= 10', 1),
+            array('20 > 20', 0),
+            array('20 > 10', 1),
+            array('20 >= 20', 1),
+            array('20 >= 10', 1),
+            array('1 == 1 ? 10 : 20', 10),
         );
     }
 
