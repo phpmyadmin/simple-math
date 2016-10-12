@@ -140,6 +140,10 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
                 '(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2',
                 array(2, 0, 1, 1, 1, 2, 2, 2, 2),
             ),
+            array(
+                '(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5)',
+                array(0, 1, 2, 3, 3, 3, 3, 4, 5),
+            ),
         );
     }
 }
