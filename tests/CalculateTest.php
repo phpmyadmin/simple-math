@@ -54,7 +54,7 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider getVariableEquations
      */
-    public function testEvaluateVariable($equation, $name, $variable, $result)
+    public function testVariable($equation, $name, $variable, $result)
     {
         $math = new SimpleMath\Math();
         $math->registerVariable($name, $variable);
