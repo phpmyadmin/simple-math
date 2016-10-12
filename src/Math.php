@@ -20,16 +20,35 @@
 */
 namespace SimpleMath;
 
+
+/**
+ * Core class of the library performing parsing and calculations.
+ */
 class Math {
 
     protected $variables = array();
     protected $stack = null;
 
+    /**
+     * Parses and executes given formula
+     *
+     * @param string $string Formula to process
+     *
+     * @return int
+     */
     public function evaluate($string) {
         $this->parse($string);
         return $this->run();
     }
 
+    /**
+     * Parses given formula. The parsed formula is stored in
+     * the class.
+     *
+     * @param string $string Formula to process
+     *
+     * @return void
+     */
     public function parse($string) {
         $tokens = $this->tokenize($string);
         $output = new Stack();
@@ -53,10 +72,23 @@ class Math {
         $this->stack = $output;
     }
 
+    /**
+     * Registers variable for use withing calculation
+     *
+     * @param string $name  Name of variable
+     * @param int    $value Value of variable
+     *
+     * @return void
+     */
     public function registerVariable($name, $value) {
         $this->variables[$name] = $value;
     }
 
+    /**
+     * Executes currently parsed formula with current variables
+     *
+     * @return int
+     */
     public function run() {
         $stack = clone $this->stack;
         while (($operator = $stack->pop()) && $operator->isOperator()) {
