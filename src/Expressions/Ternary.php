@@ -20,10 +20,14 @@
 */
 namespace SimpleMath\Expressions;
 
-class Ternary extends Operator {
+class Ternary extends \SimpleMath\Expression {
 
     protected $precidence = 1;
     protected $leftAssoc = false;
+
+    public function isOperator() {
+        return true;
+    }
 
     public function operate(\SimpleMath\Stack $stack, $variables=array()) {
         if (! $this->isOpen()) {
@@ -49,7 +53,4 @@ class Ternary extends Operator {
     public function isOpen() {
         return $this->value == '?';
     }
-
 }
-
-

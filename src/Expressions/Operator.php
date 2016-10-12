@@ -29,13 +29,10 @@ abstract class Operator extends \SimpleMath\Expression {
     public function operate(\SimpleMath\Stack $stack, $variables=array())
     {
         $right = $stack->pop()->operate($stack, $variables);
-        $left = $stack->pop()->operate($stack, $variables);
+        $left = $stack->pop();
+        $left = ($left ? $left->operate($stack, $variables) : 0);
         return $this->calculate($left, $right);
     }
 
-    protected function calculate($left, $right)
-    {
-        return 0;
-    }
+    abstract protected function calculate($left, $right);
 }
-
