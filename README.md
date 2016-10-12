@@ -16,6 +16,9 @@ Simple math expression evaluator.
 * Supports basic logical operations `&&`, `||`
 * Supports variables (either PHP style `$a` or simple `n`)
 
+The library was developed in order to be able to evaluate Gettext plural
+equations, but can be used for any mathematical calculations.
+
 ## Installation
 
 Please use [Composer][1] to install:
