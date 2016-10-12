@@ -40,10 +40,6 @@ abstract class TerminalExpression {
         return false;
     }
 
-    public function isNoOp() {
-        return false;
-    }
-
     public function render() {
         return $this->value;
     }

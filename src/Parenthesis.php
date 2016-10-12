@@ -12,10 +12,6 @@ class Parenthesis extends TerminalExpression {
         return $this->precidence;
     }
 
-    public function isNoOp() {
-        return true;
-    }
-
     public function isParenthesis() {
         return true;
     }
