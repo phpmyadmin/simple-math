@@ -3,7 +3,7 @@ namespace SimpleMath;
 
 class Ternary extends Operator {
 
-    protected $precidence = 6;
+    protected $precidence = 1;
     protected $leftAssoc = false;
 
     public function operate(Stack $stack, $variables=array()) {
