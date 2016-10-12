@@ -24,6 +24,8 @@ abstract class TerminalExpression {
             return new Multiplication($value);
         } elseif ($value == '/') {
             return new Division($value);
+        } elseif (in_array($value, array('?', ':'))) {
+            return new Ternary($value);
         } elseif (in_array($value, array('(', ')'))) {
             return new Parenthesis($value);
         }
@@ -37,6 +39,10 @@ abstract class TerminalExpression {
     }
 
     public function isParenthesis() {
+        return false;
+    }
+
+    public function isTernary() {
         return false;
     }
 
