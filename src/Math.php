@@ -5,10 +5,11 @@ namespace SimpleMath;
 class Math {
 
     protected $variables = array();
+    protected $stack = null;
 
     public function evaluate($string) {
-        $stack = $this->parse($string);
-        return $this->run($stack);
+        $this->parse($string);
+        return $this->run();
     }
 
     public function parse($string) {
@@ -31,14 +32,15 @@ class Math {
             }
             $output->push($op);
         }
-        return $output;
+        $this->stack = $output;
     }
 
     public function registerVariable($name, $value) {
         $this->variables[$name] = $value;
     }
 
-    public function run(Stack $stack) {
+    public function run() {
+        $stack = clone $this->stack;
         while (($operator = $stack->pop()) && $operator->isOperator()) {
             $value = $operator->operate($stack, $this->variables);
             if (!is_null($value)) {

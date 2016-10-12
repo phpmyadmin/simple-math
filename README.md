@@ -50,6 +50,17 @@ $math->evaluate('$a + 1');
 $math->registerVariable('n', 4);
 $math->evaluate('n + 1');
 
+// Calculate same expression with different values
+
+$math = new SimpleMath\Math();
+
+$math->parse('n + 1');
+
+$math->registerVariable('n', 10);
+$math->run();
+
+$math->registerVariable('n', 100);
+$math->run();
 ```
 
 ## History

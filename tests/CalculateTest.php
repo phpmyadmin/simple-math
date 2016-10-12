@@ -70,16 +70,18 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
     {
         $math = new SimpleMath\Math();
 
+        $math->parse('n + 1');
+
         $math->registerVariable('n', 10);
-        $this->assertEquals(11, $math->evaluate('n + 1'));
+        $this->assertEquals(11, $math->run());
 
         $math->registerVariable('n', 100);
-        $this->assertEquals(101, $math->evaluate('n + 1'));
+        $this->assertEquals(101, $math->run());
 
         $math->registerVariable('n', -2);
-        $this->assertEquals(-1, $math->evaluate('n + 1'));
+        $this->assertEquals(-1, $math->run());
 
         $math->registerVariable('n', 0);
-        $this->assertEquals(1, $math->evaluate('n + 1'));
+        $this->assertEquals(1, $math->run());
     }
 }
