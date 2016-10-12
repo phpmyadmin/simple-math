@@ -65,4 +65,21 @@ class EvaluateTest extends PHPUnit_Framework_TestCase
             array('n + 1', 'n', 100, 101),
         );
     }
+
+    public function testDifferentVariable()
+    {
+        $math = new SimpleMath\Math();
+
+        $math->registerVariable('n', 10);
+        $this->assertEquals(11, $math->evaluate('n + 1'));
+
+        $math->registerVariable('n', 100);
+        $this->assertEquals(101, $math->evaluate('n + 1'));
+
+        $math->registerVariable('n', -2);
+        $this->assertEquals(-1, $math->evaluate('n + 1'));
+
+        $math->registerVariable('n', 0);
+        $this->assertEquals(1, $math->evaluate('n + 1'));
+    }
 }
