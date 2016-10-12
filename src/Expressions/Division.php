@@ -24,10 +24,8 @@ class Division extends Operator {
 
     protected $precidence = 5;
 
-    public function operate(\SimpleMath\Stack $stack, $variables=array()) {
-        $left = $stack->pop()->operate($stack, $variables);
-        $right = $stack->pop()->operate($stack, $variables);
-        return $right / $left;
+    protected function calculate($left, $right)
+    {
+        return $left / $right;
     }
-
 }

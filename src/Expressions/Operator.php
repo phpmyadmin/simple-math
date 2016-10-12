@@ -26,5 +26,16 @@ abstract class Operator extends \SimpleMath\Expression {
         return true;
     }
 
+    public function operate(\SimpleMath\Stack $stack, $variables=array())
+    {
+        $right = $stack->pop()->operate($stack, $variables);
+        $left = $stack->pop()->operate($stack, $variables);
+        return $this->calculate($left, $right);
+    }
+
+    protected function calculate($left, $right)
+    {
+        return 0;
+    }
 }
 

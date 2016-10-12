@@ -20,7 +20,7 @@
 */
 namespace SimpleMath\Expressions;
 
-class OperatorAnd extends Comparison {
+class OperatorAnd extends Binary {
 
     protected $precidence = 2;
 

@@ -24,8 +24,8 @@ class Addition extends Operator {
 
     protected $precidence = 4;
 
-    public function operate(\SimpleMath\Stack $stack, $variables=array()) {
-        return $stack->pop()->operate($stack, $variables) + $stack->pop()->operate($stack, $variables);
+    protected function calculate($left, $right)
+    {
+        return $left + $right;
     }
-
 }

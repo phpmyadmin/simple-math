@@ -20,7 +20,9 @@
 */
 namespace SimpleMath\Expressions;
 
-class ComparisonGT extends Comparison {
+class ComparisonGT extends Binary {
+
+    protected $precidence = 3;
 
     protected function calculate($left, $right)
     {
