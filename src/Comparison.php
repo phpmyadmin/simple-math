@@ -12,5 +12,5 @@ abstract class Comparison extends Operator {
         return $this->cmp($left, $right) ? 1 : 0;
     }
 
-    abstract function cmp($left, $right);
+    abstract protected function cmp($left, $right);
 }
