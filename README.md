@@ -2,6 +2,10 @@
 
 Simple math expression evaluator.
 
+Please note that in most cases it's better to use [Symfony ExpressionLanguage Component](https://packagist.org/packages/symfony/expression-language) instead. It performs better and provides more features.
+
+This repository will probably not receive any updates in future.
+
 [![Build Status](https://travis-ci.org/phpmyadmin/simple-math.svg?branch=master)](https://travis-ci.org/phpmyadmin/simple-math)
 [![codecov.io](https://codecov.io/github/phpmyadmin/simple-math/coverage.svg?branch=master)](https://codecov.io/github/phpmyadmin/simple-math?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phpmyadmin/simple-math/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpmyadmin/simple-math/?branch=master)
