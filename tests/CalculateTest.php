@@ -19,14 +19,14 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Test for functions.
  *
  * @package PhpMyAdmin-test
  */
-
-
-class EvaluateTest extends PHPUnit_Framework_TestCase
+class EvaluateTest extends TestCase
 {
     /**
      * @dataProvider getEquations
